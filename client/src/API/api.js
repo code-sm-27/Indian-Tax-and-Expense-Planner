@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+const rawApiUrl = import.meta.env.VITE_API_URL || '';
+const baseURL = rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`;
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api', // Vite proxy will handle the exact localhost port locally, VITE_API_URL used in production
+  baseURL: baseURL, // Automatically handles missing /api suffix and local proxy
   withCredentials: true, // Crucial for HTTP-only cookies
   headers: {
     'Content-Type': 'application/json'

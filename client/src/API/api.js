@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api', // Vite proxy will handle the exact localhost port
+  baseURL: import.meta.env.VITE_API_URL || '/api', // Vite proxy will handle the exact localhost port locally, VITE_API_URL used in production
   withCredentials: true, // Crucial for HTTP-only cookies
   headers: {
     'Content-Type': 'application/json'

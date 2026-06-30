@@ -5,6 +5,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
+import serverless from 'serverless-http';
 
 // Load env vars
 config();
@@ -55,17 +56,31 @@ app.use((err, req, res, next) => {
 });
 
 // --- Database Connection ---
+let isConnected = false;
 const connectDB = async () => {
+    if (isConnected) return;
     try {
         await connect(process.env.DB_URL);
+        isConnected = true;
         console.log("✅ MongoDB Connection Successful");
-        
-        const PORT = process.env.PORT || 4000;
-        app.listen(PORT, () => console.log(`🚀 Server Started on port ${PORT}`));
     } catch (err) {
         console.error("❌ Error connecting to MongoDB:", err.message);
-        process.exit(1);
+        if (!process.env.AWS_EXECUTION_ENV) {
+            process.exit(1);
+        }
     }
 };
 
-connectDB();
+if (process.env.AWS_EXECUTION_ENV) {
+    // In AWS Lambda, we don't start the Express server
+    connectDB();
+} else {
+    // Local development
+    connectDB().then(() => {
+        const PORT = process.env.PORT || 4000;
+        app.listen(PORT, () => console.log(`🚀 Server Started on port ${PORT}`));
+    });
+}
+
+// Export the serverless handler
+export const handler = serverless(app);

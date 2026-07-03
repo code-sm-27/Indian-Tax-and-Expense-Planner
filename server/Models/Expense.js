@@ -1,5 +1,8 @@
 import { Schema, model } from 'mongoose';
 
+/**
+ * Mongoose schema for representing an income or expense transaction.
+ */
 const expenseSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     type: { type: String, enum: ["INCOME", "EXPENSE"], required: true },

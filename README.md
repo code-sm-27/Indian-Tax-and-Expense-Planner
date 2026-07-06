@@ -86,4 +86,4 @@ Contributions, issues, and feature requests are welcome!
 This project is licensed under the MIT License.
 
 ---
-*Last updated with a quick commit.*
+*Maintained with ❤️ by the community.*

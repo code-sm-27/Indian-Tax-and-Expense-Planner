@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import api from '../API/api';
 import toast from 'react-hot-toast';
-import { LayoutDashboard, ReceiptIndianRupee, Calculator, LogOut, LogIn, WalletCards } from 'lucide-react';
+import { LayoutDashboard, ReceiptIndianRupee, Calculator, LogOut, LogIn } from 'lucide-react';
 
 const Navbar = () => {
   const navigate = useNavigate();

@@ -9,6 +9,24 @@ import { TrendingUp, TrendingDown, PiggyBank, ArrowUpRight } from 'lucide-react'
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title);
 
+const Card = ({ title, amount, icon: Icon, colorClass, gradientClass }) => (
+  <div className={`relative overflow-hidden bg-white p-6 rounded-2xl shadow-sm border border-slate-100 group hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}>
+      <div className={`absolute -right-6 -top-6 w-24 h-24 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500 ${gradientClass}`}></div>
+      <div className="flex justify-between items-start">
+          <div>
+              <p className="text-slate-500 font-medium text-sm tracking-wide uppercase">{title}</p>
+              <h3 className="text-3xl font-bold text-slate-800 mt-2 tracking-tight">₹{amount.toLocaleString('en-IN')}</h3>
+          </div>
+          <div className={`p-3 rounded-xl ${colorClass}`}>
+              <Icon size={24} />
+          </div>
+      </div>
+      <div className="mt-4 flex items-center text-sm text-slate-500 font-medium">
+          <ArrowUpRight size={16} className="mr-1" /> Updated Just Now
+      </div>
+  </div>
+);
+
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -62,23 +80,6 @@ const Dashboard = () => {
     }]
   };
 
-  const Card = ({ title, amount, icon: Icon, colorClass, gradientClass }) => (
-    <div className={`relative overflow-hidden bg-white p-6 rounded-2xl shadow-sm border border-slate-100 group hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}>
-        <div className={`absolute -right-6 -top-6 w-24 h-24 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500 ${gradientClass}`}></div>
-        <div className="flex justify-between items-start">
-            <div>
-                <p className="text-slate-500 font-medium text-sm tracking-wide uppercase">{title}</p>
-                <h3 className="text-3xl font-bold text-slate-800 mt-2 tracking-tight">₹{amount.toLocaleString('en-IN')}</h3>
-            </div>
-            <div className={`p-3 rounded-xl ${colorClass}`}>
-                <Icon size={24} />
-            </div>
-        </div>
-        <div className="mt-4 flex items-center text-sm text-slate-500 font-medium">
-            <ArrowUpRight size={16} className="mr-1" /> Updated Just Now
-        </div>
-    </div>
-  );
 
   return (
     <div className="max-w-6xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">

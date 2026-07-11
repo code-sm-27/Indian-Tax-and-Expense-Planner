@@ -86,4 +86,4 @@ Contributions, issues, and feature requests are welcome!
 This project is licensed under the MIT License.
 
 ---
-*Maintained with ❤️ by the open-source community. Last updated in 2026.*
+*Maintained with ❤️. Last updated in 2026.*

@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
 import serverless from 'serverless-http';
 
-// Load env vars
+// Load environment variables
 config();
 
 const app = express();

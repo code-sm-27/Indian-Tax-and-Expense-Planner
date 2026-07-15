@@ -87,3 +87,4 @@ This project is licensed under the MIT License.
 
 ---
 *Maintained with ❤️ by the community. Last updated in 2026. Happy coding!*
+*This project is actively maintained.*

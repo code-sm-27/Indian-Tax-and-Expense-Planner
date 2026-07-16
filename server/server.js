@@ -7,6 +7,11 @@ import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
 import serverless from 'serverless-http';
 
+import authRoutes from './Routes/authRoutes.js';
+import expenseRoutes from './Routes/expenseRoutes.js';
+import salarySlipRoutes from './Routes/salarySlipRoutes.js';
+import taxRoutes from './Routes/taxRoutes.js';
+
 // Load environment variables
 config();
 
@@ -31,10 +36,6 @@ const apiLimiter = rateLimit({
 });
 app.use('/api/', apiLimiter);
 
-import authRoutes from './Routes/authRoutes.js';
-import expenseRoutes from './Routes/expenseRoutes.js';
-import salarySlipRoutes from './Routes/salarySlipRoutes.js';
-import taxRoutes from './Routes/taxRoutes.js';
 
 // --- Routes ---
 app.get('/api/health', (req, res) => res.status(200).send({ status: 'OK' }));

@@ -88,3 +88,4 @@ This project is licensed under the MIT License.
 ---
 *Maintained with ❤️ by the community. Last updated in July 2026. Happy coding!*
 *This project is actively maintained.*
+*Tested with GitHub Quick.*

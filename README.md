@@ -91,3 +91,4 @@ This project is licensed under the MIT License.
 *Tested with GitHub Quick.*
 *Ready for deployment.*
 *Deploying soon!*
+*Stay tuned for more updates!*

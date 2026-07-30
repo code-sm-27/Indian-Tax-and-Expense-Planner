@@ -95,3 +95,4 @@ This project is licensed under the MIT License.
 *New commit test for github!*
 *Another test commit!*
 *One more test commit for Github!*
+*Testing Github commit!*
